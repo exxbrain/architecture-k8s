@@ -13,7 +13,7 @@
 					"script": {
 						"id": "1fbb1000-55a2-4d13-93c0-16bca8e2293b",
 						"exec": [
-							"pm.environment.set(\"user_id\", pm.response.json().id);"
+							"pm.collectionVariables.set(\"user_id\", pm.response.json().id);"
 						],
 						"type": "text/javascript"
 					}
@@ -32,9 +32,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/users",
+					"raw": "{{base_url}}/users",
 					"host": [
-						"{{base-url}}"
+						"{{base_url}}"
 					],
 					"path": [
 						"users"
@@ -123,9 +123,14 @@
 	],
 	"variable": [
 		{
-			"id": "b8afcd74-0ff1-4e13-aab8-fba65d7fffca",
-			"key": "base-url",
+			"id": "883fdce4-03a2-4f0f-9178-baa06a91abf7",
+			"key": "base_url",
 			"value": "http://arch.homework/otusapp/dzakharov"
+		},
+		{
+			"id": "a847cf35-a692-438a-bbf3-8d16a1abefa8",
+			"key": "user_id",
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}
