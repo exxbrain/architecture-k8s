@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: arch-config
+data:
+  GREETING: Hello
+  BASE_PATH: /otusapp/dzakharov
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: arch-secret
+type: Opaque
+data:
+  DATABASE_URI: amRiYzpwb3N0Z3Jlc3FsOi8vcG9zdGdyZXMvYXJjaD91c2VyPWFyY2gmcGFzc3dvcmQ9cGFzc3dkJnNzbD1mYWxzZQo=

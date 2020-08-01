@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: architecture-ingress
+  name: arch-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
@@ -11,5 +11,5 @@ spec:
         paths:
           - path: /otusapp/dzakharov($|/)(.*)
             backend:
-              serviceName: architecture-service
+              serviceName: arch-service
               servicePort: 9000

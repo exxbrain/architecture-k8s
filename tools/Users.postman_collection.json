@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "6ed17f25-806b-4ae0-8a0d-7f4fa4479a64",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fbb1000-55a2-4d13-93c0-16bca8e2293b",
+						"exec": [
+							"pm.environment.set(\"user_id\", pm.response.json().id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"arch\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov.com\",\n    \"phone\": \"+78349482393\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/users",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"arch\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov.com\",\n    \"phone\": \"+78349482393\"\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/users/{{user_id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"arch\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov.com\",\n    \"phone\": \"+78349482393\"\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/users/{{user_id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "df64b53c-b547-4d54-b76c-c9a388a9ee21",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7cd290fd-dc7f-4093-8cf0-0cd74f6a7c57",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b8afcd74-0ff1-4e13-aab8-fba65d7fffca",
+			"key": "base-url",
+			"value": "http://arch.homework/otusapp/dzakharov"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
