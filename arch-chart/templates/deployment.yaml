@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "arch-chart.fullname" . }}
+  labels:
+  {{- include "arch-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{.Values.replicaCount}}
+  selector:
+    matchLabels:
+      {{- include "arch-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "arch-chart.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}:{{ .Chart.AppVersion }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+          env:
+            - name: DATABASE_URI
+              valueFrom:
+                secretKeyRef:
+                  name: arch-secret
+                  key: DATABASE_URI
+            - name: GREETING
+              valueFrom:
+                configMapKeyRef:
+                  name: arch-config
+                  key: GREETING
+            - name: BASE_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: arch-config
+                  key: BASE_PATH
+          readinessProbe:
+            httpGet:
+              port: {{.Values.service.port}}
+              path: /health
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              port: {{.Values.service.port}}
+              path: /
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 2

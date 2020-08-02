@@ -1,20 +1,27 @@
 # architecture-k8s
 
-#### Install helm if not installed yet
+Install helm if not installed yet
 ```shell script
 brew install helm
 helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 
-#### Install postgres
+## Install from helm charts
+```shell script
+helm install myapp ./arch-chart
+```
+
+## Install without helm charts
+
+Install postgres
 ```shell script
 helm install pg bitnami/postgresql -f tools/pg-values.yaml
 ```
 
-#### Run
+Run
 ```shell script
 kubectl apply -f .
 ```
 
-#### Postman
-Use `*.postman_collection.json` from the `tools` folder 
+## Test
+Use Postman with `Users.postman_collection.json` from the `tools` folder
