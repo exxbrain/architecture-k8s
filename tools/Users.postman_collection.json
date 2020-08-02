@@ -24,7 +24,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"arch\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov.com\",\n    \"phone\": \"+78349482393\"\n}",
+					"raw": "{\n    \"username\": \"arch12\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov12.com\",\n    \"phone\": \"+78349482311\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -32,9 +32,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/users",
+					"raw": "{{base-url}}/users",
 					"host": [
-						"{{base_url}}"
+						"{{base-url}}"
 					],
 					"path": [
 						"users"
@@ -49,7 +49,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{base-url}}/users/{{user-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users",
+						"{{user-id}}"
+					]
 				}
 			},
 			"response": []
@@ -61,16 +68,21 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"arch\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov.com\",\n    \"phone\": \"+78349482393\"\n}"
+					"raw": "{\n    \"username\": \"arch1\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Pavlov\",\n    \"email\": \"arch@petrov1.com\",\n    \"phone\": \"+78349482392\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "{{base-url}}/users/{{user_id}}",
+					"raw": "{{base-url}}/users/{{user-id}}",
 					"host": [
 						"{{base-url}}"
 					],
 					"path": [
 						"users",
-						"{{user_id}}"
+						"{{user-id}}"
 					]
 				}
 			},
@@ -81,18 +93,14 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"arch\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov.com\",\n    \"phone\": \"+78349482393\"\n}"
-				},
 				"url": {
-					"raw": "{{base-url}}/users/{{user_id}}",
+					"raw": "{{base-url}}/users/{{user-id}}",
 					"host": [
 						"{{base-url}}"
 					],
 					"path": [
 						"users",
-						"{{user_id}}"
+						"{{user-id}}"
 					]
 				}
 			},
@@ -123,13 +131,13 @@
 	],
 	"variable": [
 		{
-			"id": "883fdce4-03a2-4f0f-9178-baa06a91abf7",
-			"key": "base_url",
+			"id": "996325ee-ad0d-4ccc-a9f7-742f6c844eb8",
+			"key": "base-url",
 			"value": "http://arch.homework/otusapp/dzakharov"
 		},
 		{
-			"id": "a847cf35-a692-438a-bbf3-8d16a1abefa8",
-			"key": "user_id",
+			"id": "3098e17f-a21d-486d-8298-cb1206cb988a",
+			"key": "user-id",
 			"value": ""
 		}
 	],
