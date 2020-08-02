@@ -5,7 +5,7 @@ metadata:
   labels:
   {{- include "arch-chart.labels" . | nindent 4 }}
 spec:
-  replicas: {{.Values.replicaCount}}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       {{- include "arch-chart.selectorLabels" . | nindent 6 }}

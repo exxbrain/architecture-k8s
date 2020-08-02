@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: exxbrain/architecture
+    context: ../architecture
+deploy:
+  helm:
+    releases:
+      - name: arch-skaffold
+        chartPath: arch-chart
+        values:
+          image: exxbrain/architecture
