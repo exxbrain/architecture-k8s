@@ -6,12 +6,19 @@ brew install helm
 helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 
-## Install using helm chart
+## Helm chart
+Install
 ```shell script
 helm install myapp ./arch-chart
 ```
+Upgrade/Delete
+```shell script
+helm upgrade myapp ./arch-chart
+helm uninstall myapp ./arch-chart
+```
 
-## Install without using helm chart
+
+## Without using helm chart
 
 Install postgres
 ```shell script
@@ -26,7 +33,7 @@ kubectl apply -f .
 ## Test
 Use Postman with `Users.postman_collection.json` from the `tools` folder
 
-## Skaffold
+## Skaffold (Not working yet)
 
 ```shell script
 skaffold run -f tools/skaffold.yaml

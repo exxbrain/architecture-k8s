@@ -12,9 +12,12 @@ service:
   basePath: /otusapp/dzakharov
   host: arch.homework
 
-postgres:
+postgresql:
+  enabled: true
+  fullnameOverride: postgres
   postgresqlUsername: arch
   postgresqlPassword: passwd
   postgresqlDatabase: arch
   postgresqlHost: postgres
-  postgresqlPort: 5432
+  service:
+    port: 5432
