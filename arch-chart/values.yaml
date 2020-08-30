@@ -3,8 +3,7 @@ replicaCount: 2
 ingress:
   enabled: true
 
-image:
-  repository: exxbrain/architecture
+image: exxbrain/architecture
 
 service:
   type: NodePort

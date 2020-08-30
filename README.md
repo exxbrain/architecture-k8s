@@ -30,6 +30,11 @@ Run
 kubectl apply -f .
 ```
 
+Stop
+```shell script
+kubectl apply -f .
+```
+
 ## Test
 Use Postman with `Users.postman_collection.json` from the `tools` folder
 

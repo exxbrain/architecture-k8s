@@ -18,11 +18,16 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: {{ .Values.image.repository }}:{{ .Chart.AppVersion }}
+          image: {{ .Values.image }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
           env:
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: arch-config
+                  key: SERVER_PORT
             - name: DATABASE_URI
               valueFrom:
                 secretKeyRef:

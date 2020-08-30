@@ -13,7 +13,7 @@
 					"script": {
 						"id": "1fbb1000-55a2-4d13-93c0-16bca8e2293b",
 						"exec": [
-							"pm.collectionVariables.set(\"user_id\", pm.response.json().id);"
+							"pm.collectionVariables.set(\"user-id\", pm.response.json().id);"
 						],
 						"type": "text/javascript"
 					}
@@ -24,7 +24,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"arch12\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"arch@petrov12.com\",\n    \"phone\": \"+78349482311\"\n}",
+					"raw": "{\n    \"username\": \"arch151\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"archp@etr3221.com\",\n    \"phone\": \"+78319424312\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,13 +62,57 @@
 			"response": []
 		},
 		{
+			"name": "Get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/users",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Update user",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"arch1\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Pavlov\",\n    \"email\": \"arch@petrov1.com\",\n    \"phone\": \"+78349482392\"\n}",
+					"raw": "{\n    \"username\": \"arch151\",\n    \"firstName\": \"Arch\",\n    \"lastName\": \"Petrov\",\n    \"email\": \"archp@e2tr3221.com\",\n    \"phone\": \"+78319424234324341222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/users/{{user-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users",
+						"{{user-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update phone",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\": \"+123232131223\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,6 +149,23 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Delete all",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/users",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -131,12 +192,12 @@
 	],
 	"variable": [
 		{
-			"id": "996325ee-ad0d-4ccc-a9f7-742f6c844eb8",
+			"id": "dc39a758-87a0-43cb-a794-d3874a84f2b2",
 			"key": "base-url",
 			"value": "http://arch.homework/otusapp/dzakharov"
 		},
 		{
-			"id": "3098e17f-a21d-486d-8298-cb1206cb988a",
+			"id": "ef970b7b-32bf-4cf1-b02f-7a53698220ab",
 			"key": "user-id",
 			"value": ""
 		}

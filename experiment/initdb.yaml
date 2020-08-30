@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-db
+spec:
+  template:
+    metadata:
+      name: init-db
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: check-db-ready
+          image: postgres:latest
+          env:
+            - name: POSTGRES_HOST
+              value: "postgres"
+            - name: POSTGRES_PORT
+              value: "5432"
+          command:
+            - sh
+            - "-c"
+            - |
+              until pg_isready -h $POSTGRES_HOST -p $POSTGRES_PORT;
+              do echo waiting for database; sleep 1; done;
+      containers:
+        - name: post-install-job
+          image: postgres:latest
+          env:
+            - name: DATABASE_URI
+              value: "postgresql://arch:passwd@postgres/arch"
+          command:
+            - sh
+            - "-c"
+            - |
+              psql $DATABASE_URI <<'EOF'
+                create database arch;
+              EOF
+  backoffLimit: 2

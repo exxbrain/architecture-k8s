@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: arch-monitor
+  labels:
+    app: arch-app
+spec:
+  endpoints:
+  - port: 8000
+    scheme: http
+    path: /metrics
+    inteval: 60s
+  selector:
+    matchLabels:
+      app: arch-app
+  namespaceSelector:
+    matchNames:
+    - arch

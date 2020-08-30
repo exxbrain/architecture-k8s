@@ -4,7 +4,8 @@ metadata:
   name: arch-config
 data:
   GREETING: Hello
-  BASE_PATH: {{ printf .Values.service.basePath }}
+  BASE_PATH: {{ .Values.service.basePath }}
+  SERVER_PORT: "{{ .Values.service.port }}"
 ---
 apiVersion: v1
 kind: Secret
