@@ -4,7 +4,7 @@ metadata:
   name: arch-config
 data:
   GREETING: Hello
-  BASE_PATH: {{ .Values.service.basePath }}
+  PROXY_BASE_PATH: {{ .Values.service.basePath }}
   SERVER_PORT: "{{ .Values.service.port }}"
 ---
 apiVersion: v1

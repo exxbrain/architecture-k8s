@@ -7,4 +7,4 @@ controller:
       http: 80
       https: 443
   service:
-                                                                                                                                                                                    type: NodePort
+    type: NodePort

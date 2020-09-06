@@ -6,10 +6,10 @@ metadata:
     app: arch-app
 spec:
   endpoints:
-  - port: 8000
+  - port: web
     scheme: http
-    path: /metrics
-    inteval: 60s
+    path: {{ printf "%s/actuator/prometheus" .Values.service.basePath }}
+    interval: 15s
   selector:
     matchLabels:
       app: arch-app

@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: databasechangeloglock
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: databasechangeloglock
+          image: jbergknoff/postgresql-client
+          command:
+            - sh
+            - "-c"
+            - |
+              psql postgresql://arch:passwd@postgres:5432/arch -c \
+              "update databasechangeloglock set locked = false";
+  backoffLimit: 2

@@ -24,7 +24,7 @@ spec:
               do echo waiting for database; sleep 1; done;
       containers:
         - name: post-install-job
-          image: postgres:latest
+          image: exxbrain/architecture
           env:
             - name: DATABASE_URI
               value: "postgresql://arch:passwd@postgres/arch"
@@ -32,7 +32,5 @@ spec:
             - sh
             - "-c"
             - |
-              psql $DATABASE_URI <<'EOF'
-                create database arch;
-              EOF
+              java -jar liquibase.jar --changeLogFile="./data/" --diffTypes="data" generateChangeLog
   backoffLimit: 2

@@ -38,21 +38,21 @@ spec:
                 configMapKeyRef:
                   name: arch-config
                   key: GREETING
-            - name: BASE_PATH
+            - name: PROXY_BASE_PATH
               valueFrom:
                 configMapKeyRef:
                   name: arch-config
-                  key: BASE_PATH
+                  key: PROXY_BASE_PATH
           readinessProbe:
             httpGet:
               port: {{.Values.service.port}}
               path: /health
-            initialDelaySeconds: 5
+            initialDelaySeconds: 20
             periodSeconds: 5
           livenessProbe:
             httpGet:
               port: {{.Values.service.port}}
               path: /
-            initialDelaySeconds: 5
+            initialDelaySeconds: 20
             periodSeconds: 5
             timeoutSeconds: 2

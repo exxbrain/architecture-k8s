@@ -10,11 +10,10 @@ kubectl delete service/arch-service
 kubectl apply -f .
 ```
 
-## Inside pod
+## Run container
 ```shell script
 kubectl run -it --rm busybox --image=busybox
 kubectl run -it --rm postgresql-client postgresql://arch:passwd@postgres:5432/arch --image=jbergknoff/postgresql-client
-kubectl delete deployment.apps/postgresql-client
 env
 wget -qO- http://myapp-arch-chart:8000/
 ```
@@ -52,8 +51,21 @@ helm install myapp ./arch-chart
 helm upgrade myapp ./arch-chart
 helm delete myapp ./arch-chart
 ```
-
+## Ingress
 ```shell script
+minikube addons enable ingress
+kubectl describe ingress arch-skaffold-arch-chart
+
+kubectl config set-context --current --namespace=kube-system
+kubectl describe deployment.apps/ingress-nginx-controller
+```
+
+## Inside cluster
+```shell script
+minikube ssh
+wget -qO- http://10.111.156.222:8000/
+logout
+
 minikube docker-env
 
 # To point your shell to minikube's docker-daemon, run:
@@ -61,9 +73,10 @@ eval $(minikube -p minikube docker-env)
 docker ps
 ```
 
-## Minikube
+## Persistent volume
 ```shell script
-minikube ssh
-wget -qO- http://10.111.156.222:8000/
-logout
+kubectl get pv
+kubectl get pvc
+kubectl delete pvc data-postgres-0
+kubectl delete pv --all
 ```
