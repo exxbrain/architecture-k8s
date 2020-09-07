@@ -3,6 +3,10 @@ replicaCount: 2
 ingress:
   enabled: true
 
+metrics:
+  serviceMonitor:
+    enabled: true
+
 image: exxbrain/architecture
 
 service:

@@ -15,5 +15,10 @@ helm install prom stable/prometheus-operator -f prometheus/prometheus.yaml --ato
 helm uninstall prom
 
 kubectl port-forward service/prom-grafana 9000:80
+```
+
+```shell script
+kubectl get servicemonitors.monitoring.coreos.com
 kubectl port-forward service/prom-prometheus-operator-prometheus 9000:9090
+http://localhost:9000/service-discovery
 ```
