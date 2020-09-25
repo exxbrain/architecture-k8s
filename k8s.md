@@ -43,6 +43,8 @@ kubectl delete pod busybox-686489489-tdvp9
 kubectl get pods --show-labels
 # Debug pod
 kubectl label pod myapp-arch-chart-7bb569fc44-xrfhk app.kubernetes.io/instance=myapp1 --overwrite
+kubectl exec -it pod/postgres-0 bash
+psql -U arch #passwd
 ```
 
 ## Helm
@@ -58,6 +60,7 @@ kubectl describe ingress arch-skaffold-arch-chart
 
 kubectl config set-context --current --namespace=kube-system
 kubectl describe deployment.apps/ingress-nginx-controller
+curl http://arch.homework/otusapp/dzakharov
 ```
 
 ## Inside cluster
